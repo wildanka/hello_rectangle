@@ -6,23 +6,35 @@ import 'package:flutter/material.dart';
 //chances are We're not going to have an app that is entirely hard-coded with widgets that never rebuild
 //but this is what our helloRectangleContainer function currently return
 //we can use a stateless widgets
-Widget helloRectangleContainer(){
-  return Container(
-    color: Colors.lightBlue,
-  );
+class HelloRectangle extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    //create an element in the center
+    return Center(
+      //create the child, (which in this case is container )
+      child: Container(
+        color: Colors.lightBlue,
+        height: 400.0,
+        width: 300.0,
+        child: Center(
+          child: Text(
+            "Hello!, It's really Flattering to learn Flutter",
+            style: TextStyle(fontSize: 40.0),
+            textAlign: TextAlign.center,
+          ),
+        ),
+      ),
+    );
+  }
 }
 
-
 void main() {
-  runApp(
-    MaterialApp(
+  runApp(MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        appBar : AppBar(
+        appBar: AppBar(
           title: Text("Hello Rectangle"),
         ),
-        body: helloRectangleContainer(),
-      )
-    )
-  );
+        body: HelloRectangle(),
+      )));
 }
